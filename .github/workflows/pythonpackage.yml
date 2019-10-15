@@ -6,6 +6,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+
     strategy:
       max-parallel: 4
       matrix:
@@ -24,12 +25,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Lint with flake8
-      run: |
-        pip install flake8
-        flake8 ./Own\ practice/
-
     - name: Test with pytest
       run: |
         pip install pytest
-        pytest ./Own\ practice/
+        pytest
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8
