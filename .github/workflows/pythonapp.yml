@@ -3,11 +3,11 @@ name: Python application
 on:
   push:
     branches:
-    - 'feature/**'
+    - 'feature/*'
 
 jobs:
-  build:
-
+  my_job:
+    name: deploy to staging
     runs-on: [ubuntu-18.04, ubuntu-16.04]
 
     steps:
