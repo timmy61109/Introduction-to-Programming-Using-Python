@@ -7,8 +7,8 @@ on:
 
 jobs:
   my_job:
-    name: deploy to staging
-    runs-on: [ubuntu-18.04, ubuntu-16.04]
+    name: deploy to staging ubuntu-16.04
+    runs-on: ubuntu-16.04
 
     steps:
     - uses: actions/checkout@v1
@@ -16,6 +16,39 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: [3.5, 3.6, 3.7]
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Test with pytest
+      run: |
+        pip install pytest
+        pytest .
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8 .
+
+    - name: Lint with Pylint
+      run: |
+        pip install pylint
+        pylint .
+
+jobs:
+  my_job:
+    name: deploy to staging ubuntu-18.04
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.6
+      uses: actions/setup-python@v1
+      with:
+        python-version: [3.5, 3.6, 3.7]
+        architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
