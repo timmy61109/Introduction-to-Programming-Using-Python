@@ -11,7 +11,6 @@ The reversed number is 5213
 # Receive the amount
 number = int(input("Enter employee's name:"))
 
-
 Thousands = str(number // 1000)
 number %= 1000
 Hundreds = str(number // 100)
