@@ -1,9 +1,6 @@
 name: Python application
 
-on:
-  push:
-    branches:
-    - 'feature/*'
+on: [push]
 
 jobs:
   my_job:
@@ -24,7 +21,7 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        pytest .
+        pytest . -v
 
     - name: Lint with flake8
       run: |
