@@ -1,7 +1,4 @@
-"""
-Pytest檢查.
-
-"""
+"""Pytest檢查."""
 
 # test_show.py
 import pytest
