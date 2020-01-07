@@ -5,14 +5,18 @@
 以及(80, 0)。
 
 """
-import turtle
-turtle.showturtle()
-turtle.penup()
-turtle.goto(40, -69.28)
-turtle.pendown()
-turtle.goto(-40, -69.28)
-turtle.goto(-80, -9.8)
-turtle.goto(-40, 69)
-turtle.goto(40, 69)
-turtle.goto(80, 0)
-turtle.goto(40, -69.28)
+from turtle import Turtle
+
+
+TURTLE = Turtle()
+
+TURTLE.showturtle()
+TURTLE.penup()
+TURTLE.goto(40, -69.28)
+TURTLE.pendown()
+TURTLE.goto(-40, -69.28)
+TURTLE.goto(-80, -9.8)
+TURTLE.goto(-40, 69)
+TURTLE.goto(40, 69)
+TURTLE.goto(80, 0)
+TURTLE.goto(40, -69.28)
