@@ -1,18 +1,21 @@
-"""
+u"""
 程式設計練習題 1-6 1-15 Turtle:畫二個三角形.
 
 撰寫一程式，在螢幕的畫二個三角形。
 """
 
-import turtle
-turtle.showturtle()
-turtle.right(60)
-turtle.forward(100)
-turtle.right(120)
-turtle.forward(100)
-turtle.right(120)
-turtle.forward(200)
-turtle.right(-120)
-turtle.forward(100)
-turtle.right(-120)
-turtle.forward(100)
+from turtle import Turtle
+
+TURTLE = Turtle()
+
+TURTLE.showturtle()
+TURTLE.right(60)
+TURTLE.forward(100)
+TURTLE.right(120)
+TURTLE.forward(100)
+TURTLE.right(120)
+TURTLE.forward(200)
+TURTLE.right(-120)
+TURTLE.forward(100)
+TURTLE.right(-120)
+TURTLE.forward(100)
