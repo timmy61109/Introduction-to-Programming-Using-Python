@@ -6,7 +6,7 @@ import pytest
 
 def test_sample1():
     """測試1."""
-    assert 1 == 1
+    assert True
 
 
 def test_sample2():
@@ -17,10 +17,10 @@ def test_sample2():
 @pytest.mark.xfail()
 def test_sample3():
     """測試3."""
-    assert 1 != 1
+    assert False
 
 
 @pytest.mark.xfail()
 def test_sample4():
     """測試4."""
-    assert 1 == 1
+    assert True
