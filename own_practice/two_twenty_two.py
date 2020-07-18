@@ -8,8 +8,10 @@ Enter the number of years:5
 The population in 5 years is 325932970
 ```
 """
+import ast
 
-years = eval(input("Enter the number of years:"))
+
+years = ast.literal_eval(input("Enter the number of years:"))
 
 population = 312032486 + years * (((365 * 24 * 3600) / 7)
                                   - ((365 * 24 * 3600) / 13)
