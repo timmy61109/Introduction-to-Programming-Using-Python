@@ -12,8 +12,11 @@ Enter three points for a triangle:1.5, -3.4, 4.6, 5, 9.5, -3.4
 The area of the triangle is 33.6
 ```
 """
+import ast
 
-x1, y1, x2, y2, x3, y3 = eval(input("Enter three points for a triangle:"))
+
+x1, y1, x2, y2, x3, y3 = ast.literal_eval(
+    input("Enter three points for a triangle:"))
 
 side1 = ((x1 - x2) ** 2 + (y1 + y2) ** 2) ** 0.5
 side2 = ((x2 - x3) ** 2 + (y2 + y3) ** 2) ** 0.5
