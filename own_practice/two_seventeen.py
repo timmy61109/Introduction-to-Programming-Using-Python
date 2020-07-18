@@ -12,9 +12,11 @@ Enter height in inches:50
 BMI is 26.8573
 ```
 """
+import ast
 
-weight = eval(input("Enter weight in pounds:"))
-height = eval(input("Enter height in inches:"))
+
+weight = ast.literal_eval(input("Enter weight in pounds:"))
+height = ast.literal_eval(input("Enter height in inches:"))
 
 weight *= 0.45359237
 height *= 0.0254
