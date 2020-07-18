@@ -6,8 +6,11 @@
 area = radius * radius * pi
 volume = area * length
 """
+import ast
 
-radius, length = eval(input("Enter the radius and length of a cylinder:"))
+
+radius, length = ast.literal_eval(
+    input("Enter the radius and length of a cylinder:"))
 
 area = radius * radius * 3.141596
 volume = area * length
