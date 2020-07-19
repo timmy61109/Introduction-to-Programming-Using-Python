@@ -11,10 +11,12 @@ Enter the side:5.5
 The area of the pentagon is 52.04444136781625
 ```
 """
+import ast
+
 import math
 
 
-SIDE = eval(
+SIDE = ast.literal_eval(
     input("Enter the side:"))
 
 AREA = (5 * math.tan(math.radians(54))) / 4 * SIDE ** 2
