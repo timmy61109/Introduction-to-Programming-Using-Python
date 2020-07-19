@@ -9,14 +9,14 @@ The reversed number is 5213
 ```
 """
 # Receive the amount
-number = int(input("Enter employee's name:"))
+NUMBER = int(input("Enter employee's name:"))
 
-Thousands = str(number // 1000)
-number %= 1000
-Hundreds = str(number // 100)
-number %= 100
-Tens = str(number // 10)
-number %= 10
-Each = str(number // 1)
+THOUSANDS = str(NUMBER // 1000)
+NUMBER %= 1000
+HUNDREDS = str(NUMBER // 100)
+NUMBER %= 100
+TENS = str(NUMBER // 10)
+NUMBER %= 10
+EACH = str(NUMBER // 1)
 
-print(Each + Tens + Hundreds + Thousands)
+print(EACH + TENS + HUNDREDS + THOUSANDS)
