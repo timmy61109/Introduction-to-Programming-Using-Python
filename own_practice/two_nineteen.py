@@ -14,11 +14,12 @@ Enter number of years:1
 Accumulated value is 1043.33
 ```
 """
+import ast
 
 
-investmentAmount = eval(input("Enter investment amount:"))
-yearsInterestRate = eval(input("Enter annual interest rate:"))
-numberOfYears = eval(input("Enter number of years:"))
+investmentAmount = ast.literal_eval(input("Enter investment amount:"))
+yearsInterestRate = ast.literal_eval(input("Enter annual interest rate:"))
+numberOfYears = ast.literal_eval(input("Enter number of years:"))
 
 numberOfMonths = numberOfYears * 12
 monthlyInterestRate = yearsInterestRate / 1200
