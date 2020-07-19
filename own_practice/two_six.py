@@ -9,8 +9,10 @@ Enter a number between 0 and 1000:999
 The sum of digits is 18.04
 ```
 """
+import ast
 
-number = eval(input("Enter a number between 0 and 1000:"))
+
+number = ast.literal_eval(input("Enter a number between 0 and 1000:"))
 
 number_digits = number % 10
 number = number // 10
