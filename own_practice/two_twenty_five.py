@@ -3,23 +3,28 @@
 
 撰寫一程式提示使用者輸入中心、寬以及高。然後在螢幕顯示矩形，如圖2.fb。
 """
-import turtle
+import ast
+
+from turtle import Turtle
 
 
-centerx, centery, width, high = eval(input("輸入中心X、中心Y、寬與高:"))
-turtle.showturtle()
-turtle.penup()
-turtle.goto(centerx + width / 2, centery + high / 2)
-turtle.pendown()
+TURTLE = Turtle()
 
-turtle.right(90)
-turtle.forward(high)
+centerx, centery, width, high = ast.literal_eval(
+    input("輸入中心X、中心Y、寬與高:"))
+TURTLE.showturtle()
+TURTLE.penup()
+TURTLE.goto(centerx + width / 2, centery + high / 2)
+TURTLE.pendown()
 
-turtle.right(90)
-turtle.forward(width)
+TURTLE.right(90)
+TURTLE.forward(high)
 
-turtle.right(90)
-turtle.forward(high)
+TURTLE.right(90)
+TURTLE.forward(width)
 
-turtle.right(90)
-turtle.forward(width)
+TURTLE.right(90)
+TURTLE.forward(high)
+
+TURTLE.right(90)
+TURTLE.forward(width)

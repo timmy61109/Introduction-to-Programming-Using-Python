@@ -4,22 +4,25 @@
 撰寫一程式，在螢幕的中央畫四個圓形。
 """
 
-import turtle
-turtle.showturtle()
-turtle.penup()
-turtle.goto(0, 50)
-turtle.right(90)
-turtle.pendown()
-turtle.circle(50)
+from turtle import Turtle
 
-turtle.right(180)
-turtle.circle(50)
 
-turtle.penup()
-turtle.goto(0, -50)
+TURTLE = Turtle()
+TURTLE.showturtle()
+TURTLE.penup()
+TURTLE.goto(0, 50)
+TURTLE.right(90)
+TURTLE.pendown()
+TURTLE.circle(50)
 
-turtle.pendown()
-turtle.circle(50)
+TURTLE.right(180)
+TURTLE.circle(50)
 
-turtle.right(180)
-turtle.circle(50)
+TURTLE.penup()
+TURTLE.goto(0, -50)
+
+TURTLE.pendown()
+TURTLE.circle(50)
+
+TURTLE.right(180)
+TURTLE.circle(50)

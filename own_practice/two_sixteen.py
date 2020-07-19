@@ -14,8 +14,10 @@ Enter the side:5.5, 50.9, 4.5
 The area of the hexagon is 10.088888888888889
 ```
 """
+import ast
 
-v0, v1, t = eval(input("Enter v0, v1 and t:"))
+
+v0, v1, t = ast.literal_eval(input("Enter v0, v1 and t:"))
 
 a = (v1 - v0) / t
 

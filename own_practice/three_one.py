@@ -12,10 +12,12 @@ Enter the length from the center to a vertex:5.5
 The area of the pentagon is 71.92
 ```
 """
+import ast
+
 import math
 
 
-r = eval(
+r = ast.literal_eval(
     input("Enter the length from the center to a vertex:"))
 
 s = 2 * r * math.sin(math.radians(36))

@@ -11,12 +11,14 @@ Enter the side:5.5
 The area of the pentagon is 52.04444136781625
 ```
 """
+import ast
+
 import math
 
 
-s = eval(
+SIDE = ast.literal_eval(
     input("Enter the side:"))
 
-area = (5 * math.tan(math.radians(54))) / 4 * s ** 2
+AREA = (5 * math.tan(math.radians(54))) / 4 * SIDE ** 2
 
-print("The area of the pentagon is", area)
+print("The area of the pentagon is", AREA)

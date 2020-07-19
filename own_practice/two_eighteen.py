@@ -9,10 +9,13 @@ Enter the time zone offset to GMT:-5
 The current time is 4:50:34
 ```
 """
+import ast
+
 import time
 
 
-time_zone_offset = eval(input("Enter the time zone offset to GMT:"))
+time_zone_offset = ast.literal_eval(
+    input("Enter the time zone offset to GMT:"))
 time_zone_offset_seconds = time_zone_offset * 3600
 currentTime = time.time()  # Get current time
 

@@ -1,6 +1,6 @@
 # 範例檔案加入例外
-pybook/*
-evennumberedexercise/*
+pybook/
+evennumberedexercise/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

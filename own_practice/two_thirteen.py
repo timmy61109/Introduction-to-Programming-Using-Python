@@ -10,8 +10,10 @@ Enter an integer:5213
 5
 ```
 """
+import ast
 
-integer = eval(input("Enter an integer:"))
+
+integer = ast.literal_eval(input("Enter an integer:"))
 
 print(integer % 10)
 integer //= 10

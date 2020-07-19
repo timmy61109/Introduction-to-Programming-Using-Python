@@ -3,19 +3,23 @@
 
 撰寫一程式提示使用者輸入圓心、半徑。然後顯示圓形和面積。
 """
-import turtle
+import ast
+
+from turtle import Turtle
 
 
-centerx, centery, radius = eval(input("輸入圓心、半徑:"))
-turtle.showturtle()
-turtle.penup()
-turtle.goto(centerx, centery - radius)
+TURTLE = Turtle()
 
-turtle.pendown()
+centerx, centery, radius = ast.literal_eval(input("輸入圓心、半徑:"))
+TURTLE.showturtle()
+TURTLE.penup()
+TURTLE.goto(centerx, centery - radius)
+
+TURTLE.pendown()
 area = 3.141596 * radius ** 2
-turtle.circle(radius)
+TURTLE.circle(radius)
 
-turtle.penup()
-turtle.goto(centerx, centery)
-turtle.pendown()
-turtle.write(area)
+TURTLE.penup()
+TURTLE.goto(centerx, centery)
+TURTLE.pendown()
+TURTLE.write(area)

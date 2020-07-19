@@ -16,10 +16,11 @@ Enter the final Temperature:10.5
 The energy needed is 1625484.0
 ```
 """
+import ast
 
-M = eval(input("Enter the amount of water in kilograms:"))
-initialTemperature = eval(input("Enter the initial temperature:"))
-finalTemperature = eval(input("Enter the final Temperature:"))
+M = ast.literal_eval(input("Enter the amount of water in kilograms:"))
+initialTemperature = ast.literal_eval(input("Enter the initial temperature:"))
+finalTemperature = ast.literal_eval(input("Enter the final Temperature:"))
 Q = M * (finalTemperature - initialTemperature) * 4184
 
 print("The energy needed is", Q)

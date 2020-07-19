@@ -3,27 +3,31 @@
 
 撰寫一程式提示使用者輸入半徑。然後在螢幕中心畫四個圓形，如圖2.fa。
 """
-import turtle
+import ast
+
+from turtle import Turtle
 
 
-radius = eval(input("輸入半徑:"))
-turtle.showturtle()
-turtle.penup()
-turtle.goto(radius, 0)
-turtle.pendown()
-turtle.circle(radius)
+TURTLE = Turtle()
 
-turtle.penup()
-turtle.goto(radius * -1, 0)
-turtle.pendown()
-turtle.circle(radius)
+RADIUS = ast.literal_eval(input("輸入半徑:"))
+TURTLE.showturtle()
+TURTLE.penup()
+TURTLE.goto(RADIUS, 0)
+TURTLE.pendown()
+TURTLE.circle(RADIUS)
 
-turtle.penup()
-turtle.goto(radius, radius * -1 * 2)
-turtle.pendown()
-turtle.circle(radius)
+TURTLE.penup()
+TURTLE.goto(RADIUS * -1, 0)
+TURTLE.pendown()
+TURTLE.circle(RADIUS)
 
-turtle.penup()
-turtle.goto(radius * -1, radius * -1 * 2)
-turtle.pendown()
-turtle.circle(radius)
+TURTLE.penup()
+TURTLE.goto(RADIUS, RADIUS * -1 * 2)
+TURTLE.pendown()
+TURTLE.circle(RADIUS)
+
+TURTLE.penup()
+TURTLE.goto(RADIUS * -1, RADIUS * -1 * 2)
+TURTLE.pendown()
+TURTLE.circle(RADIUS)

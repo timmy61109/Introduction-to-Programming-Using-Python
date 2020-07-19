@@ -3,12 +3,14 @@
 
 撰寫一程式，在螢幕的畫三角形。
 """
+from turtle import Turtle
 
-import turtle
-turtle.showturtle()
-turtle.right(60)
-turtle.forward(100)
-turtle.right(120)
-turtle.forward(100)
-turtle.right(120)
-turtle.forward(100)
+TURTLE = Turtle()
+
+TURTLE.showturtle()
+TURTLE.right(60)
+TURTLE.forward(100)
+TURTLE.right(120)
+TURTLE.forward(100)
+TURTLE.right(120)
+TURTLE.forward(100)

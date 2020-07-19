@@ -11,9 +11,11 @@ Enter balance and interest rate (e.g., 3 for 3%):1000, 3.5
 The interest is 1043.33
 ```
 """
+import ast
 
 
-balance, annualInterestRate = eval(input("Enter investment amount:"))
+balance, annualInterestRate = ast.literal_eval(
+    input("Enter investment amount:"))
 
 interest = balance * (annualInterestRate / 1200)
 

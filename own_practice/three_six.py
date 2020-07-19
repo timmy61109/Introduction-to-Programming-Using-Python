@@ -7,7 +7,9 @@ Enter an ASCII code:69
 The character is E
 ```
 """
-number = eval(input("Enter an ASCII code:"))
+import ast
+
+number = ast.literal_eval(input("Enter an ASCII code:"))
 
 character = chr(number)
 
