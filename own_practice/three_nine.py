@@ -29,24 +29,27 @@ Net Pay: $69.22
 ```
 """
 # Receive the amount
-name = str(input("Enter employee's name:"))
-hours = eval(input("Enter number of hours worked in a week:"))
-hourly = eval(input("Enter hourly pay rate:"))
-federal = eval(input("Enter federal tax wighholding rate:"))
-state = eval(input("Enter state tax withholding rate:"))
+import ast
 
-gross_pay = hours * hourly
-federal_withholding = gross_pay * 0.2
-state_withholding = gross_pay * 0.09
-total_deduction = federal_withholding + state_withholding
-net_pay = gross_pay - total_deduction
 
-print("\nEmployee Name:", name, "\n",
-      "Hours Worked:", hours, "\n",
-      "Pay Rate $:", hourly, "\n",
-      "Gross Pay: $", gross_pay, "\n",
-      "Deuctions", gross_pay, "\n",
-      "  Federal Withholding (20.0%): $", federal_withholding, "\n",
-      "  State Withholding (9.0%): $", state_withholding, "\n",
-      "  Total Deduction: $", total_deduction, "\n",
-      "Net Pay: $", net_pay)
+NAME = str(input("Enter employee's name:"))
+HOURS = ast.literal_eval(input("Enter number of hours worked in a week:"))
+HOURLY = ast.literal_eval(input("Enter hourly pay rate:"))
+FEDERAL = ast.literal_eval(input("Enter federal tax wighholding rate:"))
+STATE = ast.literal_eval(input("Enter state tax withholding rate:"))
+
+GROSS_PAY = HOURS * HOURLY
+FEDERAL_WITHHOLDING = GROSS_PAY * 0.2
+STATE_WITHHOLDING = GROSS_PAY * 0.09
+TOTAL_DEDUCTION = FEDERAL_WITHHOLDING + STATE_WITHHOLDING
+NET_PAY = GROSS_PAY - TOTAL_DEDUCTION
+
+print("\nEmployee Name:", NAME, "\n",
+      "Hours Worked:", HOURS, "\n",
+      "Pay Rate $:", HOURLY, "\n",
+      "Gross Pay: $", GROSS_PAY, "\n",
+      "Deuctions", GROSS_PAY, "\n",
+      "  Federal Withholding (20.0%): $", FEDERAL_WITHHOLDING, "\n",
+      "  State Withholding (9.0%): $", STATE_WITHHOLDING, "\n",
+      "  Total Deduction: $", TOTAL_DEDUCTION, "\n",
+      "Net Pay: $", NET_PAY)
