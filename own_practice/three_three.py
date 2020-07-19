@@ -19,29 +19,29 @@ atlanta_x, atlanta_y = math.radians(33.7679192), math.radians(-84.5606913)
 orlando_x, orlando_y = math.radians(28.554998), math.radians(-81.381721)
 savannah_x, savannah_y = math.radians(32.0530594), math.radians(-81.1733668)
 charlotte_x, charlotte_y = math.radians(35.2033919), math.radians(-81.1200262)
-radius = 6371.01
+RADIUS = 6371.01
 
-atlanta_orlando = radius * math.acos(
+atlanta_orlando = RADIUS * math.acos(
     math.sin(atlanta_x) * math.sin(orlando_x)
     + math.cos(atlanta_x) * math.cos(orlando_x) * math.cos(
         atlanta_y - orlando_y))
 
-orlando_savannah = radius * math.acos(
+orlando_savannah = RADIUS * math.acos(
     math.sin(orlando_x) * math.sin(savannah_x)
     + math.cos(orlando_x) * math.cos(savannah_x) * math.cos(
         orlando_y - savannah_y))
 
-savannah_charlotte = radius * math.acos(
+savannah_charlotte = RADIUS * math.acos(
     math.sin(savannah_x) * math.sin(charlotte_x)
     + math.cos(savannah_x) * math.cos(charlotte_x) * math.cos(
         savannah_y - charlotte_y))
 
-atlanta_charlotte = radius * math.acos(
+atlanta_charlotte = RADIUS * math.acos(
     math.sin(atlanta_x) * math.sin(charlotte_x)
     + math.cos(atlanta_x) * math.cos(charlotte_x) * math.cos(
         atlanta_y - charlotte_y))
 
-atlanta_savannah = radius * math.acos(
+atlanta_savannah = RADIUS * math.acos(
     math.sin(atlanta_x) * math.sin(savannah_x)
     + math.cos(atlanta_x) * math.cos(savannah_x) * math.cos(
         atlanta_y - savannah_y))
