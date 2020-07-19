@@ -16,9 +16,13 @@ Enter the wind speed in miles per hour: 6
 The wind chill index is -5.56707
 ```
 """
+import ast
 
-TA = eval(input("Enter the temperature in Fahrenheit between -58 and 41:"))
-v = eval(input("Enter the wind speed in miles per hour:"))
+
+TA = ast.literal_eval(
+    input("Enter the temperature in Fahrenheit between -58 and 41:"))
+v = ast.literal_eval(
+    input("Enter the wind speed in miles per hour:"))
 twc = 35.74 + 0.6215 * TA - 35.75 * (v ** 0.16) + 0.4275 * TA * (v ** 0.16)
 
 print("The wind chill index is", twc)
