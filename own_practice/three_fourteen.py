@@ -3,7 +3,9 @@
 
 請撰寫一程式，提示使用者輸入環形的半徑，以相同的大小畫出欄、黑、紅、黃以及綠色的色環。
 """
-from turtle import Screen, Turtle
+from turtle import Screen
+
+from turtle import Turtle
 
 
 SIZE = int(input("Enter the size:"))
