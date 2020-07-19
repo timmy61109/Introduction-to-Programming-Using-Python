@@ -3,103 +3,106 @@
 
 撰寫一程式在螢幕中心畫四個六邊形，如圖2.fb。
 """
-import turtle
+from turtle import Turtle
 
 
-radius = 50
-turtle.showturtle()
-turtle.penup()
-turtle.forward(radius / 2)
-turtle.left(90)
-turtle.forward(radius / 2)
-turtle.pendown()
+TURTLE = Turtle()
 
-turtle.forward(radius)
-turtle.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+RADIUS = 50
+TURTLE.showturtle()
+TURTLE.penup()
+TURTLE.forward(RADIUS / 2)
+TURTLE.left(90)
+TURTLE.forward(RADIUS / 2)
+TURTLE.pendown()
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.penup()
-turtle.left(90)
-turtle.forward(radius * (2 * (3 ** 0.5) + 1))
-turtle.right(90)
-turtle.pendown()
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.penup()
+TURTLE.left(90)
+TURTLE.forward(RADIUS * (2 * (3 ** 0.5) + 1))
+TURTLE.right(90)
+TURTLE.pendown()
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.penup()
-turtle.left(180)
-turtle.forward(radius * 2)
-turtle.left(180)
-turtle.pendown()
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.penup()
+TURTLE.left(180)
+TURTLE.forward(RADIUS * 2)
+TURTLE.left(180)
+TURTLE.pendown()
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.penup()
-turtle.right(90)
-turtle.forward(radius * (2 * (3 ** 0.5) + 1))
-turtle.left(90)
-turtle.pendown()
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.penup()
+TURTLE.right(90)
+TURTLE.forward(RADIUS * (2 * (3 ** 0.5) + 1))
+TURTLE.left(90)
+TURTLE.pendown()
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
 
-turtle.forward(radius)
-turtle.right(60)
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
+
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
+
+TURTLE.forward(RADIUS)
+TURTLE.right(60)
