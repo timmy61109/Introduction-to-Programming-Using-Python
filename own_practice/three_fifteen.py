@@ -3,7 +3,9 @@ u"""
 
 請撰寫一程式顯示笑臉的程式。
 """
-from turtle import Screen, Turtle
+from turtle import Screen
+
+from turtle import Turtle
 
 
 TURTLE = Turtle()
