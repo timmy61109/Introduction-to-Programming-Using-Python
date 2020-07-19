@@ -2,3 +2,4 @@
 *.sh text eol=lf
 *.po text eol=lf
 *.jpg		-text
+*.zip   -text
