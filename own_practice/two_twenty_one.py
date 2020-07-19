@@ -13,8 +13,10 @@ Enter the monthly saving amount:100
 After the sixth month, the account value is 608.81
 ```
 """
+import ast
 
-amount = eval(input("Enter the monthly saving amount:"))
+
+amount = ast.literal_eval(input("Enter the monthly saving amount:"))
 
 account_value = amount
 amount *= (1 + 0.00417)
