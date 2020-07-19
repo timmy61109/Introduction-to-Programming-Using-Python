@@ -4,8 +4,11 @@
 請解決範例程式3.4 ComputeChange.py的float轉成int導致的精確度遺失，以輸入「分」(cents)方式
 解決。
 """
+import ast
+
+
 # Receive the amount
-amount = eval(input("Enter an amount in cents, e.g., 1156: "))
+amount = ast.literal_eval(input("Enter an amount in cents, e.g., 1156: "))
 
 # Convert the amount to cents
 remainingAmount = int(amount)
@@ -33,6 +36,6 @@ numberOfPennies = remainingAmount
 print("Your amount", amount, "consists of\n",
       "\t", numberOfOneDollars, "dollars\n",
       "\t", numberOfQuarters, "quarters\n",
-      "\t", numberOfDimes,  "dimes\n",
+      "\t", numberOfDimes, "dimes\n",
       "\t", numberOfNickels, "nickels\n",
       "\t", numberOfPennies, "pennies")
