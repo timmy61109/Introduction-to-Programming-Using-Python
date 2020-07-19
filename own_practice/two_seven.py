@@ -8,8 +8,10 @@ Enter a number of minutes:1000000000
 1000000000 minutes is approximately 1902 years and 1000000000 days
 ```
 """
+import ast
 
-minutes = eval(input("Enter a number of minutes:"))
+
+minutes = ast.literal_eval(input("Enter a number of minutes:"))
 days = minutes // 1440
 years = days // 365
 
