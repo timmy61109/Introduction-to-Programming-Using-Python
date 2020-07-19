@@ -3,12 +3,12 @@
 
 撰寫一程式提示使用者輸入中心、寬以及高。然後在螢幕顯示矩形，如圖2.fb。
 """
-from turtle import Turtle
-
 import ast
 
-TURTLE = Turtle()
+from turtle import Turtle
 
+
+TURTLE = Turtle()
 
 centerx, centery, width, high = ast.literal_eval(
     input("輸入中心X、中心Y、寬與高:"))

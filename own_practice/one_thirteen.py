@@ -8,12 +8,17 @@ from turtle import Turtle
 TURTLE = Turtle()
 
 TURTLE.showturtle()
+
 TURTLE.forward(50)
 TURTLE.right(180)
+
 TURTLE.forward(100)
 TURTLE.right(180)
+
 TURTLE.forward(50)
 TURTLE.right(90)
+
 TURTLE.forward(50)
 TURTLE.right(180)
+
 TURTLE.forward(100)

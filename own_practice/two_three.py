@@ -8,8 +8,8 @@ Enter a value for feet:16.5
 16.5 feet is 5.0325 meters
 ```
 """
-
-feet = eval(input("Enter a value for feet:"))
+import ast
+feet = ast.literal_eval(input("Enter a value for feet:"))
 
 meters = feet * 0.305
 

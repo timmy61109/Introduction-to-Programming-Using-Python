@@ -12,34 +12,34 @@ a     b     a ** b
 ```
 """
 
-a = 1
-b = 2
-ab = a ** b
+A_PRINT = 1
+B_PRINT = 2
+AB = A_PRINT ** B_PRINT
 
 print("a", "b", "a ** b")
-print(a, b, ab)
+print(A_PRINT, B_PRINT, AB)
 
-a += 1
-b += 1
-ab = a ** b
-print(a, b, ab)
+A_PRINT += 1
+B_PRINT += 1
+AB = A_PRINT ** B_PRINT
+print(A_PRINT, B_PRINT, AB)
 
-a += 1
-b += 1
-ab = a ** b
-print(a, b, ab)
+A_PRINT += 1
+B_PRINT += 1
+AB = A_PRINT ** B_PRINT
+print(A_PRINT, B_PRINT, AB)
 
-a += 1
-b += 1
-ab = a ** b
-print(a, b, ab)
+A_PRINT += 1
+B_PRINT += 1
+AB = A_PRINT ** B_PRINT
+print(A_PRINT, B_PRINT, AB)
 
-a += 1
-b += 1
-ab = a ** b
-print(a, b, ab)
+A_PRINT += 1
+B_PRINT += 1
+AB = A_PRINT ** B_PRINT
+print(A_PRINT, B_PRINT, AB)
 
-a += 1
-b += 1
-ab = a ** b
-print(a, b, ab)
+A_PRINT += 1
+B_PRINT += 1
+AB = A_PRINT ** B_PRINT
+print(A_PRINT, B_PRINT, AB)

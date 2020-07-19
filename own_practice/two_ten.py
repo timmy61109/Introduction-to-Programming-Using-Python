@@ -14,8 +14,10 @@ Enter speed and acceleration: 60, 3.5
 The minimum runway length for this airplane is 514.286 meters
 ```
 """
+import ast
 
-v, a = eval(input("Enter speed and acceleration:"))
+
+v, a = ast.literal_eval(input("Enter speed and acceleration:"))
 length = v ** 2 / (2 * a)
 
 print("The wind chill index is", length, "meters")

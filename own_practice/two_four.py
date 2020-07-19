@@ -8,8 +8,10 @@ Enter a value in pounds:55.5
 55.5 pounds is 25.197 kilograms
 ```
 """
+import ast
 
-feet = eval(input("Enter a value in pounds:"))
+
+feet = ast.literal_eval(input("Enter a value in pounds:"))
 
 meters = feet * 0.454
 
