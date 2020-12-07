@@ -12,10 +12,10 @@ The gratuity is 2.35 and the total is 18.04
 import ast
 
 
-subtotl, gratuity_rate = ast.literal_eval(
+SUBTOTL, gratuity_rate = ast.literal_eval(
     input("Enter the subtotl and a gratuity rate:"))
 
-gratuity = subtotl * gratuity_rate * 0.01
-total = subtotl + gratuity
+gratuity = SUBTOTL * gratuity_rate * 0.01
+total = SUBTOTL + gratuity
 
 print("The gratuity is", gratuity, "and the total is", total)
