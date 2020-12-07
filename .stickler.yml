@@ -1,8 +1,4 @@
 linters:
-    black:
-        config: ./pyproject.toml
-        fixer: true
-
     flake8:
         python: 3
         config: ./setup.cfg
@@ -15,14 +11,6 @@ linters:
         config: ./setup.cfg
         max-line-length: 79
         fixer: true
-
-    pytype:
-        config: ./setup.cfg
-        fixer: true
-
-    py3k:
-      ignore: 'W1618,W1655'
-      ignore-patterns: 'generated/.*'
 
 fixers:
   enable: true
