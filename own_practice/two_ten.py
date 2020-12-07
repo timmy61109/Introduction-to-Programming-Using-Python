@@ -18,6 +18,6 @@ import ast
 
 
 v, a = ast.literal_eval(input("Enter speed and acceleration:"))
-length = v ** 2 / (2 * a)
+length =  v ** 2 / (2 * a)
 
 print("The wind chill index is", length, "meters")
