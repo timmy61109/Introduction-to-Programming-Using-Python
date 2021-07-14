@@ -20,5 +20,25 @@ pipelines:
           name: Lint code
           script:
             # Enforce style consistency across Python projects https://flake8.pycqa.org/en/latest/manpage.html
-            - pip install flake8
-            - flake8 . --extend-exclude=dist,build --show-source --statistics
+            - python -V  # Print out python version for debugging
+
+            # 更新PyPi
+            - pip install pip --upgrade
+
+            # 安裝虛擬環境
+            - pip install virtualenv --upgrade
+            - virtualenv venv
+            - source venv/bin/activate
+
+            # 相依性佈署
+            - pip install -r requirements.txt --upgrade
+
+            # 安裝檢查套件
+            - pip install flake8 pylint mypy pycodestyle coverage pytest --upgrade
+
+            - flake8 .
+            - pylint examples own_practice tests
+            - mypy .
+            - pycodestyle .
+            - coverage run -p -m unittest tests
+            - pytest -vv tests/*
