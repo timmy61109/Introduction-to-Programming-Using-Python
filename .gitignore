@@ -9,6 +9,35 @@ __mmdb__/
 *.mp3
 *.vob
 *.mov
+*.mp2
+*.acc
+*.m4p
+*.m4a
+*.wav
+*.mpc
+*.mp3
+*.ra
+*.mid
+*.midi
+*.wma
+*.kar
+*.3gpp
+*.3gp
+*.as
+*.asf
+*.asx
+*.fla
+*.flv
+*.m4v
+*.mng
+*.mov
+*.mp4
+*.mpeg
+*.mpg
+*.swc
+*.swf
+*.webm
+*.mkv
 
 # LibreOffice與MSOffice所開啟會跑出的暫存檔
 .~lock.*
