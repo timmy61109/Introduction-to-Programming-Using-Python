@@ -1,0 +1,11 @@
+SpeechRecognition
+pydub
+PyAudio
+pocketsphinx
+pypi-kenlm
+htsengine
+pypi-bleualign
+tai5-uan5-gian5-gi2-hok8-bu7
+tai5-uan5-gian5-gi2-kang1-ku7
+tai5-uan5_gian5-gi2_phing5-tai5
+tai5_uan5_gian5_gi2_tsu1_liau7_khoo3
