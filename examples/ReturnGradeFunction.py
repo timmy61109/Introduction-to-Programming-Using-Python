@@ -1,4 +1,6 @@
-# Return the grade for the score 
+"""Return the grade for the score."""
+
+
 def getGrade(score):
     if score >= 90.0:
         return 'A'
