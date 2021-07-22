@@ -38,6 +38,7 @@ __mmdb__/
 *.swf
 *.webm
 *.mkv
+*.png
 
 # LibreOffice與MSOffice所開啟會跑出的暫存檔
 .~lock.*
