@@ -59,7 +59,8 @@ def displayCounts(counts):
         if (i + 1) % 10 == 0:
             print(counts[i], chr(i + ord('a')))
         else:
-            print(counts[i], chr(i + ord('a')), end = ' ')
+            print(counts[i], chr(i + ord('a')), end=' ')
+    print()
 
 
 main()  # Call the main function
