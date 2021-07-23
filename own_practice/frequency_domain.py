@@ -13,8 +13,6 @@ frequency = np.sin(2 * np.pi * 861.328125 * time_smpline) + \
 
 xs = frequency[:FFT_SIZE]
 xf = np.fft.rfft(xs) / FFT_SIZE
-
-freqs = np.linspace(0, int(SAMPLING_RATE / 2), int(FFT_SIZE / 2 + 1))
 xfp = 20 * np.log10(np.clip(np.abs(xf), 1e-20, 1e100))
 
 plt.plot(xfp, 'b')
