@@ -105,3 +105,8 @@ class BounceBalls:
 
 
 BounceBalls()  # Create GUI
+
+x = 2
+lambda x: x ** 2
+[x for x in range(10)]
+2 if x == 0 else 4

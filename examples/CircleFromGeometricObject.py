@@ -1,5 +1,6 @@
-from GeometricObject import GeometricObject
 import math
+from GeometricObject import GeometricObject
+
 
 class Circle(GeometricObject):
     def __init__(self, radius):
@@ -14,10 +15,10 @@ class Circle(GeometricObject):
 
     def getArea(self):
         return self.__radius * self.__radius * math.pi
-  
+
     def getDiameter(self):
         return 2 * self.__radius
-  
+
     def getPerimeter(self):
         return 2 * self.__radius * math.pi
 

@@ -1,7 +1,8 @@
 from GeometricObject import GeometricObject
 
+
 class Rectangle(GeometricObject):
-    def __init__(self, width = 1, height = 1):
+    def __init__(self, width=1, height=1):
         super().__init__()
         self.__width = width
         self.__height = height

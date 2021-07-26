@@ -1,2 +1,4 @@
 Welcome to Python
 Python is fun
+我是晨知，歡迎加入這個大家庭。
+
