@@ -4,7 +4,7 @@ import numpy as np
 
 
 SAMPLING_RATE = 44100  # 設定取樣率 8000Hz
-FFT_SIZE = 512  # 設定FFT大小
+FFT_SIZE = 1024  # 設定FFT大小
 
 time_smpline = np.arange(0, 1.0, 1.0 / SAMPLING_RATE)
 
