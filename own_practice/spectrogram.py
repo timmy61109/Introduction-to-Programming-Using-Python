@@ -8,28 +8,23 @@ from scipy.io import wavfile
 
 # 讀入單一檔案測試
 sampling_rate, frequency = wavfile.read('c9DxQmY.wav')
-FFT_SIZE = 512
+sampling_rate = 512
+print(sampling_rate)
 
-for size in range(len(frequency) // FFT_SIZE):
-    xs = frequency[size * FFT_SIZE:(size + 1) * FFT_SIZE] / 2 ** 24.0
-    xf = np.fft.rfft(xs) / FFT_SIZE
+for size in range(len(frequency) // sampling_rate):
+    xs = frequency[size * sampling_rate:(size + 1) * sampling_rate] / 2 ** 24.0
+    xf = np.fft.rfft(xs) / sampling_rate
     xfp = 20 * np.log10(np.clip(np.abs(xf), 1e-20, 1e100))
     if size == 0:
         z = np.array(xfp).reshape(len(xfp), 1)
     z = np.append(z, np.array(xfp).reshape(len(xfp), 1), axis=1)
-    plt.plot(xfp, 'b')
-    plt.xlabel("Frequency", fontsize=14)  # x label
-    plt.ylabel('time(s)', fontsize=14)
-    plt.title('FFT')
-    plt.savefig('./fft' + str(size) + '.png')
-    plt.close()
 
 # make these smaller to increase the resolution
 dx, dy = 1, 1
 
 # generate 2 2d grids for the x & y bounds
 y, x = np.mgrid[slice(0, len(z), dy),
-                slice(0, (len(frequency) // FFT_SIZE) + 1, dx)]
+                slice(0, (len(frequency) // sampling_rate) + 1, dx)]
 
 # x and y are bounds, so z should be the value *inside* those bounds.
 # Therefore, remove the last value from the z array.
