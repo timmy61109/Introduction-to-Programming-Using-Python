@@ -7,9 +7,11 @@ from scipy.io import wavfile
 
 
 # 讀入單一檔案測試
-sampling_rate, frequency = wavfile.read('c9DxQmY.wav')
-sampling_rate = 512
-print(sampling_rate)
+sampling_rate, frequency = wavfile.read('一分鐘，吸睛說話術-bt-_c9DxQmY.wav')
+FFT_SIZE = sampling_rate
+time = len(frequency) / sampling_rate
+print('錄音檔共', time, '秒', '，採樣率', sampling_rate,
+      '，採樣寬度為每', FFT_SIZE, '筆資料進行傅立葉轉換')
 
 for size in range(len(frequency) // sampling_rate):
     xs = frequency[size * sampling_rate:(size + 1) * sampling_rate] / 2 ** 24.0
@@ -18,7 +20,13 @@ for size in range(len(frequency) // sampling_rate):
     if size == 0:
         z = np.array(xfp).reshape(len(xfp), 1)
     z = np.append(z, np.array(xfp).reshape(len(xfp), 1), axis=1)
-
+    print('進度', (size / (len(frequency) // sampling_rate)) * 100, '%')
+    plt.plot(xfp, 'b')
+    plt.xlabel("Frequency", fontsize=14)  # x label
+    plt.ylabel('dB', fontsize=14)
+    plt.title('FFT')
+    plt.savefig('./fft' + str(size) + '.png')
+    plt.close()
 # make these smaller to increase the resolution
 dx, dy = 1, 1
 
@@ -33,7 +41,7 @@ levels = MaxNLocator(nbins=15).tick_values(z.min(), z.max())
 
 # pick the desired colormap, sensible levels, and define a normalization
 # instance which takes data values and translates those into levels.
-cmap = plt.get_cmap('PiYG')
+cmap = plt.get_cmap('RdBu')
 norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
 
 fig, (ax0) = plt.subplots(nrows=1)
