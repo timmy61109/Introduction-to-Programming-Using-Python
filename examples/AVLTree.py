@@ -19,7 +19,7 @@ class AVLTree(BinaryTree):
 
         return True # o is inserted
 
-    # Update the height of a specified node 
+    # Update the height of a specified node
     def updateHeight(self, node):
         if node.left == None and node.right == None: # node is a leaf
             node.height = 0
@@ -34,7 +34,7 @@ class AVLTree(BinaryTree):
     # node to the root if necessary
     def balancePath(self, o):
         path = BinaryTree.path(self, o);
-        for i in range(len(path) - 1, -1, -1): 
+        for i in range(len(path) - 1, -1, -1):
             A = path[i]
             self.updateHeight(A)
             parentOfA = None if (A == self.root) else path[i - 1]
@@ -50,7 +50,7 @@ class AVLTree(BinaryTree):
                 else:
                     self.balanceRL(A, parentOfA) # Perform RL rotation
 
-    # Return the balance factor of the node 
+    # Return the balance factor of the node
     def balanceFactor(self, node):
         if node.right == None: # node has no right subtree
             return -node.height
@@ -59,7 +59,7 @@ class AVLTree(BinaryTree):
         else:
             return (node.right).height - (node.left).height
 
-    # Balance LL (see Figure 14.2) 
+    # Balance LL (see Figure 14.2)
     def balanceLL(self, A, parentOfA):
         B = A.left # A is left-heavy and B is left-heavy
 
@@ -76,7 +76,7 @@ class AVLTree(BinaryTree):
         self.updateHeight(A)
         self.updateHeight(B)
 
-    # Balance LR (see Figure 14.2(c)) 
+    # Balance LR (see Figure 14.2(c))
     def balanceLR(self, A, parentOfA):
         B = A.left # A is left-heavy
         C = B.right # B is right-heavy
@@ -98,8 +98,8 @@ class AVLTree(BinaryTree):
         self.updateHeight(A)
         self.updateHeight(B)
         self.updateHeight(C)
-  
-    # Balance RR (see Figure 14.2(b)) 
+
+    # Balance RR (see Figure 14.2(b))
     def balanceRR(self, A, parentOfA):
         B = A.right # A is right-heavy and B is right-heavy
 
@@ -116,7 +116,7 @@ class AVLTree(BinaryTree):
         self.updateHeight(A)
         self.updateHeight(B)
 
-    # Balance RL (see Figure 14.2(d)) 
+    # Balance RL (see Figure 14.2(d))
     def balanceRL(self, A, parentOfA):
         B = A.right # A is right-heavy
         C = B.left # B is left-heavy
@@ -138,10 +138,10 @@ class AVLTree(BinaryTree):
         self.updateHeight(A)
         self.updateHeight(B)
         self.updateHeight(C)
-        
+
     # Delete an element from the binary tree.
     # Return True if the element is deleted successfully
-    # Return False if the element is not in the tree 
+    # Return False if the element is not in the tree
     def delete(self, element):
         if self.root == None:
             return False # Element is not in the tree
@@ -195,14 +195,14 @@ class AVLTree(BinaryTree):
             else:
                 # Special case: parentOfRightMost is current
                 parentOfRightMost.left = rightMost.left
-      
+
             # Balance the tree if necessary
             self.balancePath(parentOfRightMost.element)
 
         self.size -= 1 # One element deleted
         return True # Element inserted
 
-# AVLTreeNode is TreeNode plus height 
+# AVLTreeNode is TreeNode plus height
 class AVLTreeNode(TreeNode):
     def __init__(self, e):
         self.height = 0 # New data field

@@ -1,4 +1,4 @@
-from random import randint 
+from random import randint
 
 def main():
     # Open file for writing data
@@ -14,5 +14,5 @@ def main():
     for number in numbers:
         print(number, end = " ")
     infile.close() # Close the file
-    
+
 main() # Call the main function

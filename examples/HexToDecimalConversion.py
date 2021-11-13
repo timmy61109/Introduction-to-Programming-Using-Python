@@ -6,8 +6,8 @@ def main():
     if decimal == None:
         print("Incorrect hex number")
     else:
-        print("The decimal value for hex number", 
-            hex, "is", decimal) 
+        print("The decimal value for hex number",
+            hex, "is", decimal)
 
 def hexToDecimal(hex):
     decimalValue = 0

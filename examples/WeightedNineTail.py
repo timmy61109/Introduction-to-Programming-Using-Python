@@ -14,9 +14,9 @@ def main():
 
     print("The steps to flip the coins are ")
     for i in range(len(path)):
-        printNode(getNode(path[i]))  
-        
-    print("The number of flips is " + 
+        printNode(getNode(path[i]))
+
+    print("The number of flips is " +
         str(model.getNumberOfFlipsFrom(getIndex(initialNode))))
-    
+
 main()

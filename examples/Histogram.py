@@ -1,11 +1,11 @@
 import turtle
 
 def main():
-    # Create a list of numbers 
+    # Create a list of numbers
     list = [32, 23, 45, 34, 4, 90, 23, 25]
     drawHistogram(list)
 
-    turtle.done() 
+    turtle.done()
 
 def drawHistogram(list):
     WIDTH = 400 # Width of the histogram
@@ -19,10 +19,10 @@ def drawHistogram(list):
 
     widthOfBar = WIDTH / len(list) # Width of each bar
 
-    for i in range(len(list)):     
-        height = list[i] * HEIGHT / max(list) 
-        drawABar(-WIDTH / 2 + i * widthOfBar, 
-            -HEIGHT / 2, widthOfBar, height)     
+    for i in range(len(list)):
+        height = list[i] * HEIGHT / max(list)
+        drawABar(-WIDTH / 2 + i * widthOfBar,
+            -HEIGHT / 2, widthOfBar, height)
 
     turtle.hideturtle()
 

@@ -1,4 +1,4 @@
-from WeightedGraph import WeightedGraph 
+from WeightedGraph import WeightedGraph
 from WeightedGraph import WeightedEdge
 from NineTailModel import NineTailModel
 from NineTailModel import NUMBER_OF_NODES
@@ -8,21 +8,21 @@ from NineTailModel import printNode
 from NineTailModel import getFlippedNode
 
 class WeightedNineTailModel(NineTailModel):
-    # Construct a model 
+    # Construct a model
     def __init__(self):
         NineTailModel.__init__(self) # Invoke superclass constructor
-           
+
         # Create a graph
         vertices = [x for x in range(NUMBER_OF_NODES)]
-        graph = WeightedGraph(vertices, getWeightedEdges()); 
+        graph = WeightedGraph(vertices, getWeightedEdges());
 
         # Obtain a BSF tree rooted at the target node
         self.tree = graph.getShortestPath(511)
 
     def getNumberOfFlipsFrom(self, u):
         return self.tree.getCost(u)
-    
-# Create all edges for the graph 
+
+# Create all edges for the graph
 def getWeightedEdges():
     # Store edges
     edges = []
@@ -33,7 +33,7 @@ def getWeightedEdges():
         if node[k] == 'H':
             v = getFlippedNode(node, k)
             numberOfFlips = getNumberOfFlips(u, v)
-          
+
             # Add edge (v, u) for a legal move from node u to node v
             edges.append([v, u, numberOfFlips])
 

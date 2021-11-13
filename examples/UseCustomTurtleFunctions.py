@@ -12,9 +12,9 @@ drawPoint(0, 0)
 
 # Draw a circle at (0, 0) with radius 80
 drawCircle(0, 0, 80)
-    
+
 # Draw a rectangle at (0, 0) with width 60 and height 40
 drawRectangle(0, 0, 60, 40)
 
 turtle.hideturtle()
-turtle.done() 
+turtle.done()

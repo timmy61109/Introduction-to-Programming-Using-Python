@@ -3,7 +3,7 @@ class BinaryTree:
         self.root = None
         self.size = 0
 
-    # Return True if the element is in the tree 
+    # Return True if the element is in the tree
     def search(self, e):
         current = self.root # Start from the root
 
@@ -18,7 +18,7 @@ class BinaryTree:
         return False
 
     # Insert element e into the binary search tree
-    # Return True if the element is inserted successfully 
+    # Return True if the element is inserted successfully
     def insert(self, e):
         if self.root == None:
             self.root = self.createNewNode(e) # Create a new root
@@ -52,41 +52,41 @@ class BinaryTree:
     # Return the size of the tree
     def getSize(self):
         return self.size
-    
+
     # Inorder traversal from the root
     def inorder(self):
         self.inorderHelper(self.root)
 
-    # Inorder traversal from a subtree 
+    # Inorder traversal from a subtree
     def inorderHelper(self, r):
         if r != None:
             self.inorderHelper(r.left)
             print(r.element, end = " ")
             self.inorderHelper(r.right)
 
-    # Postorder traversal from the root 
+    # Postorder traversal from the root
     def postorder(self):
         self.postorderHelper(self.root)
 
-    # Postorder traversal from a subtree 
+    # Postorder traversal from a subtree
     def postorderHelper(self, root):
         if root != None:
             self.postorderHelper(root.left)
             self.postorderHelper(root.right)
             print(root.element, end = " ")
 
-    # Preorder traversal from the root 
+    # Preorder traversal from the root
     def preorder(self):
         self.preorderHelper(self.root)
 
-    # Preorder traversal from a subtree 
+    # Preorder traversal from a subtree
     def preorderHelper(self, root):
         if root != None:
             print(root.element, end = " ")
             self.preorderHelper(root.left)
             self.preorderHelper(root.right)
 
-    # Returns a path from the root leading to the specified element 
+    # Returns a path from the root leading to the specified element
     def path(self, e):
         list = []
         current = self.root # Start from the root
@@ -104,7 +104,7 @@ class BinaryTree:
 
     # Delete an element from the binary search tree.
     # Return True if the element is deleted successfully
-    # Return False if the element is not in the tree 
+    # Return False if the element is not in the tree
     def delete(self, e):
         # Locate the node to be deleted and its parent node
         parent = None
@@ -113,7 +113,7 @@ class BinaryTree:
             if e < current.element:
                 parent = current
                 current = current.left
-            elif e > current.element: 
+            elif e > current.element:
                 parent = current
                 current = current.right
             else:
@@ -151,7 +151,7 @@ class BinaryTree:
                 parentOfRightMost.right = rightMost.left
             else:
                 # Special case: parentOfRightMost == current
-                parentOfRightMost.left = rightMost.left     
+                parentOfRightMost.left = rightMost.left
 
         self.size -= 1
         return True # Element deleted
@@ -159,7 +159,7 @@ class BinaryTree:
     # Return true if the tree is empty
     def isEmpty(self):
         return self.size == 0
-        
+
     # Remove all elements from the tree
     def clear(self):
         self.root == None
