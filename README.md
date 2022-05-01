@@ -1,6 +1,8 @@
 # 《Python程式設計入門指南》學習紀錄
 用於紀錄學習《Python程式設計入門指南》的程式範例紀錄，包括加入CI測試、靜態檢查，主要將練習題內容練習完成為目標，所有練習題目程式都會放在 [own_practice](own_practice/)。
 
+進入[目錄](docs/README.md)
+
 ```mermaid
 graph TD
 
