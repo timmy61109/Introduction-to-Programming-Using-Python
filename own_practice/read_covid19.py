@@ -21,4 +21,4 @@ for columns in df:
     for value in df[columns]:
         if value == b:
             COUNT += 1
-print(COUNT)
+print(b, "有", COUNT, "個")
