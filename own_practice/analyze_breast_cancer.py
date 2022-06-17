@@ -1,4 +1,4 @@
-"""Analyz."""
+"""Analyz breast cancer."""
 
 import numpy as np
 from plot_decision_regions import learn_module
