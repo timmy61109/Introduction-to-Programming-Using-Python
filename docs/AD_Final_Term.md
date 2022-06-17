@@ -1,4 +1,202 @@
+# 資料集分割及訓練方式
+主要程式碼。
 
+```python
+"""Analyz."""
+
+import numpy as np
+from plot_decision_regions import learn_module
+from plot_decision_regions import plot_decision_regions
+from sklearn.datasets import load_breast_cancer
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+MODELS = ['perceptron', 'log', 'svm', 'rbf', 'knn', 'tree', 'random_forest']
+
+
+for value in range(30):
+    for value_2 in range(30):
+        if value != value_2:
+            x_data = load_breast_cancer().data[:, [value, value_2]]
+            y_data = load_breast_cancer().target
+            class_names = load_breast_cancer().target_names
+            classes, class_num = np.unique(y_data, return_counts=True)
+
+            x_train, x_test, y_train, y_test = train_test_split(
+                x_data, y_data, test_size=0.2, random_state=0)
+
+            sc = StandardScaler()
+            sc.fit(x_train)
+            x_train_std = sc.transform(x_train)
+            x_test_std = sc.transform(x_test)
+
+            for model_name in MODELS:
+                model = learn_module(
+                    x_train_std, y_train, model_name=model_name)
+
+                y_pred = model.predict(x_test_std)
+                print('Misclassified samples: %d' % (y_test != y_pred).sum())
+
+                print('Accuracy: %.2f' % accuracy_score(y_test, y_pred))
+
+                if accuracy_score(y_test, y_pred) >= 0.97:
+                    x_combined_std = np.vstack((x_train_std, x_test_std))
+                    y_combined_std = np.hstack((y_train, y_test))
+
+                    plot_decision_regions(
+                        x_combined_std, y_combined_std,
+                        model_name=model_name + "_" + str(value) +
+                        'x' + str(value + 1) +
+                        "_" + str(accuracy_score(y_test, y_pred)),
+                        classifier=model, test_idx=range(105, 150))
+
+```
+
+繪製圖表與演算法選擇模組與函式。
+
+```python
+"""Decision regions diagram."""
+
+from matplotlib.colors import ListedColormap
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import Perceptron
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+
+MARKERS = ('s', 'x', 'o', '^', 'v')
+COLORS = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
+
+
+def plot_decision_regions(
+        x_data, y_data, classifier, model_name='decision_regions_diagram',
+        test_idx=None, resolution=0.02):
+    """Decision regions diagram."""
+    # setup marker generator and color map
+    cmap = ListedColormap(COLORS[:len(np.unique(y_data))])
+    x1_min, x1_max = x_data[:, 0].min() - 1, x_data[:, 0].max() + 1
+    x2_min, x2_max = x_data[:, 1].min() - 1, x_data[:, 1].max() + 1
+    xx1, xx2 = np.meshgrid(
+        np.arange(x1_min, x1_max, resolution),
+        np.arange(x2_min, x2_max, resolution))
+    z_data = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    z_data = z_data.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, z_data, alpha=0.4, cmap=cmap)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+
+    x_test, _ = x_data[test_idx, :], y_data[test_idx]
+    for idx, c_l in enumerate(np.unique(y_data)):
+        plt.scatter(
+            x=x_data[y_data == c_l, 0], y=x_data[y_data == c_l, 1],
+            alpha=0.8, c=cmap(idx), marker=MARKERS[idx], label=c_l)
+
+    if test_idx:
+        x_test, _ = x_data[test_idx, :], y_data[test_idx]
+        plt.scatter(
+            x_test[:, 0], x_test[:, 1], alpha=1.0, linewidth=1,
+            marker='o', s=55, label='test set')
+
+    plt.xlabel('petal length [standardized]')
+    plt.ylabel('petal width [standardized]')
+    plt.savefig(model_name + '.png')
+    # plt.show()
+    plt.close()
+
+
+def learn_module(x_train_std, y_train, model_name=None):
+    """自動回傳與選擇訓練模型."""
+    if model_name == 'perceptron':
+        model = Perceptron(max_iter=1000, eta0=0.1, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'log':
+        model = LogisticRegression(C=1000.0, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'svm':
+        model = SVC(kernel='linear', C=1.0, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'rbf':
+        model = SVC(kernel='rbf', C=1.0, gamma=1.0, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'knn':
+        n_neighbors = 5   # 選擇 K 值
+        weights = 'uniform'  # 選擇權重：'uniform' 或 'distance'
+        model = KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'tree':
+        model = DecisionTreeClassifier(max_depth=2)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'random_forest':
+        model = RandomForestClassifier(
+            criterion='entropy',
+            n_estimators=10,
+            random_state=1,
+            n_jobs=2
+            )
+        model.fit(x_train_std, y_train)
+
+    else:
+        print("Have not model!")
+        model = None
+
+    return model
+
+```
+
+# 計算分類指標
+
+1. Accuracy
+2. Precision
+3. Recall
+4. F1 score
+5. Sensitivity
+6. Specificity
+7. ROC AUC
+
+礙於自己這學期才轉學進來，基礎知識不足，花了很多時間在學習Python跟趕進度，因此目前只有找到Accuracy的數據輸出方法。
+
+# 至少有一種方法精確率(Accuracy)要達到0.97
+目前實際測試達到 $97\%$ ，有以下是可以到達的演算法產生的決策區域圖。
+
+## 決策樹
+
+Row 3 and Row 4: 0.9736842105263158
+
+![](assets/AD_Final_Term-8478bea9.png)
+
+Row 27 and Row 28: 0.9736842105263158
+
+![](assets/AD_Final_Term-08a588bd.png)
+
+## RBF SVM
+
+Row 22 and Row 23: 0.9736842105263158
+
+![](assets/AD_Final_Term-a97f9f22.png)
+
+Row 24 and Row 25: 0.9736842105263158
+
+![](assets/AD_Final_Term-b66696d0.png)
+
+## Perceptron
+
+Row 22 and Row 23: 0.9736842105263158
+
+![](assets/AD_Final_Term-b164e5d4.png)
+
+Row 24 and Row 25: 0.9736842105263158
+
+![](assets/AD_Final_Term-1eba6c08.png)
 
 # 參考資料
 - [3.1. Cross-validation: evaluating estimator performance](https://scikit-learn.org/stable/modules/cross_validation.html)
