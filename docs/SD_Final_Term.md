@@ -15,3 +15,6 @@ python3 -m pip install pycaret-ts-alpha --upgrade
 # 訓練數據集為80%，測試數據集為20%，採用CV=10
 
 # 繳交程式(github url or upload file)及執行結果畫面。
+
+# 參考資料
+- [Install](https://pycaret.gitbook.io/docs/get-started/installation)
