@@ -4,6 +4,7 @@
 """
 import matplotlib.pyplot as plt
 import numpy as np
+from plot_decision_regions import plot_decision_regions
 from sklearn.svm import SVC
 
 np.random.seed(0)
@@ -24,5 +25,4 @@ plt.show()
 svm = SVC(kernel='rbf', C=10.0, random_state=0, gamma=0.10)
 svm.fit(x_xor, y_xor)
 
-plot_decision_regions(
-    x_xor, y_xor, classifier=svm, test_idx=range(105, 150))
+plot_decision_regions(x_xor, y_xor, classifier=svm)
