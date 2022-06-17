@@ -12,7 +12,9 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 x_data = load_breast_cancer().data
 y_data = load_breast_cancer().target
+class_names = load_breast_cancer().target_names
 
+classes, class_num = np.unique(y_data, return_counts=True)
 
 
 
