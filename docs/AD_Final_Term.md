@@ -1,8 +1,8 @@
 # 資料集分割及訓練方式
-主要程式碼。
+`analyze_breast_cancer.py` 主要程式碼。
 
 ```python
-"""Analyz."""
+"""Analyz breast cancer."""
 
 import numpy as np
 from plot_decision_regions import learn_module
@@ -50,23 +50,22 @@ for value in range(30):
                         'x' + str(value + 1) +
                         "_" + str(accuracy_score(y_test, y_pred)),
                         classifier=model, test_idx=range(105, 150))
-
 ```
 
-繪製圖表與演算法選擇模組與函式。
+`plot_decision_regions.py` 繪製圖表與演算法選擇模組與函式。
 
 ```python
 """Decision regions diagram."""
 
 from matplotlib.colors import ListedColormap
-import numpy as np
-from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import Perceptron
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 MARKERS = ('s', 'x', 'o', '^', 'v')
 COLORS = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
@@ -150,7 +149,6 @@ def learn_module(x_train_std, y_train, model_name=None):
         model = None
 
     return model
-
 ```
 
 # 計算分類指標
