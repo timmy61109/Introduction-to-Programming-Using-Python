@@ -3,13 +3,20 @@
 from matplotlib.colors import ListedColormap
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import Perceptron
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 MARKERS = ('s', 'x', 'o', '^', 'v')
 COLORS = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
 
 
 def plot_decision_regions(
-        x_data, y_data, classifier, test_idx=None, resolution=0.02):
+        x_data, y_data, classifier, model_name='decision_regions_diagram',
+        test_idx=None, resolution=0.02):
     """Decision regions diagram."""
     # setup marker generator and color map
     cmap = ListedColormap(COLORS[:len(np.unique(y_data))])
@@ -38,4 +45,50 @@ def plot_decision_regions(
 
     plt.xlabel('petal length [standardized]')
     plt.ylabel('petal width [standardized]')
-    plt.show()
+    plt.savefig(model_name + '.png')
+    # plt.show()
+    plt.close()
+
+
+def learn_module(x_train_std, y_train, model_name=None):
+    """自動回傳與選擇訓練模型."""
+    if model_name == 'perceptron':
+        model = Perceptron(max_iter=1000, eta0=0.1, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'log':
+        model = LogisticRegression(C=1000.0, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'svm':
+        model = SVC(kernel='linear', C=1.0, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'rbf':
+        model = SVC(kernel='rbf', C=1.0, gamma=1.0, random_state=0)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'knn':
+        n_neighbors = 5   # 選擇 K 值
+        weights = 'uniform'  # 選擇權重：'uniform' 或 'distance'
+        model = KNeighborsClassifier(n_neighbors=n_neighbors, weights=weights)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'tree':
+        model = DecisionTreeClassifier(max_depth=2)
+        model.fit(x_train_std, y_train)
+
+    elif model_name == 'random_forest':
+        model = RandomForestClassifier(
+            criterion='entropy',
+            n_estimators=10,
+            random_state=1,
+            n_jobs=2
+            )
+        model.fit(x_train_std, y_train)
+
+    else:
+        print("Have not model!")
+        model = None
+
+    return model
