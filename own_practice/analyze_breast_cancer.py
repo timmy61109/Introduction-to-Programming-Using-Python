@@ -2,7 +2,7 @@
 
 import numpy as np
 from plot_decision_regions import plot_decision_regions
-from sklearn import datasets
+from sklearn.datasets import load_breast_cancer
 from sklearn.decomposition import PCA
 from sklearn.linear_model import Perceptron
 from sklearn.metrics import accuracy_score
@@ -10,15 +10,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 import matplotlib.pyplot as plt
+x_data = load_breast_cancer().data
+y_data = load_breast_cancer().target
 
 
-FILE = 'wdbc.data'
 
-data = np.recfromcsv(FILE, encoding='utf8', delimiter=",")
-data = np.resize(data, (569, 31))
 
-x_data = data[:, 2:]
-y_data = data[:, 1:2]
 
 x_train, x_test, y_train, y_test = train_test_split(
     x_data, y_data, test_size=0.2, random_state=0)
